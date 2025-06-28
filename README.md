@@ -40,7 +40,7 @@ A comprehensive Python application for converting images to PDF format. This too
 
 For users who just want to convert images to PDF without installing Python:
 
-1. **Go to [Releases](https://github.com/yourusername/image2pdfconverter/releases)** 
+1. **Go to [Releases](https://github.com/kalinduSsasinindu/image-To-Pdf-Converter/releases)** 
 2. **Download the latest release** containing:
    - `Image2PDF_GUI.exe` - Graphical interface (26MB)
    - `Image2PDF_CLI.exe` - Command-line tool (23MB)
@@ -291,8 +291,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 If you encounter issues:
 
 1. Check the [Troubleshooting](#troubleshooting) section
-2. Search [existing issues](https://github.com/yourusername/image2pdfconverter/issues)
-3. Create a [new issue](https://github.com/yourusername/image2pdfconverter/issues/new) with details
+2. Search [existing issues](https://github.com/kalinduSsasinindu/image-To-Pdf-Converter/issues)
+3. Create a [new issue](https://github.com/kalinduSsasinindu/image-To-Pdf-Converter/issues/new) with details
 
 ### 🌟 Show Your Support
 

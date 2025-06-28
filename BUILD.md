@@ -35,8 +35,8 @@ pip install Pillow reportlab pyinstaller
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/image2pdfconverter.git
-cd image2pdfconverter
+git clone https://github.com/kalinduSsasinindu/image-To-Pdf-Converter.git
+cd image-To-Pdf-Converter
 
 # Install dependencies
 pip install -r requirements.txt

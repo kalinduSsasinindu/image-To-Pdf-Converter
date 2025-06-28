@@ -6,12 +6,12 @@ This guide covers how to use the standalone executable files that don't require 
 
 ## Available Executables
 
-Download from [GitHub Releases](https://github.com/yourusername/image2pdfconverter/releases):
+Download from [GitHub Releases](https://github.com/kalinduSsasinindu/image-To-Pdf-Converter/releases):
 
 - **`Image2PDF_GUI.exe`** (26MB) - Graphical User Interface (Recommended for most users)
 - **`Image2PDF_CLI.exe`** (23MB) - Command Line Interface (For advanced users and automation)
 
-> 📥 **How to Download**: Go to the [Releases page](https://github.com/yourusername/image2pdfconverter/releases), find the latest version, and download the executable files from the "Assets" section.
+> 📥 **How to Download**: Go to the [Releases page](https://github.com/kalinduSsasinindu/image-To-Pdf-Converter/releases), find the latest version, and download the executable files from the "Assets" section.
 
 ## GUI Version (Image2PDF_GUI.exe)
 

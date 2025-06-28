@@ -22,8 +22,8 @@ Thank you for your interest in contributing to the Image2PDF Converter project! 
 1. **Fork the repository** on GitHub
 2. **Clone your fork** locally:
    ```bash
-   git clone https://github.com/yourusername/image2pdfconverter.git
-   cd image2pdfconverter
+   git clone https://github.com/yourusername/image-To-Pdf-Converter.git
+   cd image-To-Pdf-Converter
    ```
 3. **Install dependencies**:
    ```bash
