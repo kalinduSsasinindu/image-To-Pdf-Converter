@@ -1,0 +1,123 @@
+name: Test and Build
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  release:
+    types: [ published ]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: [3.8, 3.9, '3.10', '3.11', '3.12']
+        exclude:
+          # Reduce matrix for faster CI
+          - os: macos-latest
+            python-version: 3.8
+          - os: macos-latest
+            python-version: 3.9
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run tests
+      run: |
+        python test_converter.py
+
+    - name: Test CLI interface
+      run: |
+        python image_to_pdf_converter.py --help
+
+    - name: Test GUI import (non-interactive)
+      run: |
+        python -c "import gui_converter; print('GUI module imported successfully')"
+
+  build-windows:
+    needs: test
+    runs-on: windows-latest
+    if: github.event_name == 'release' || github.ref == 'refs/heads/main'
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pyinstaller
+
+    - name: Build GUI executable
+      run: |
+        python -m PyInstaller --onefile --windowed --name "Image2PDF_GUI" gui_converter.py
+
+    - name: Build CLI executable
+      run: |
+        python -m PyInstaller --onefile --console --name "Image2PDF_CLI" image_to_pdf_converter.py
+
+    - name: Test executables
+      run: |
+        dist\Image2PDF_CLI.exe --help
+
+    - name: Upload GUI executable
+      uses: actions/upload-artifact@v3
+      with:
+        name: Image2PDF_GUI_Windows
+        path: dist/Image2PDF_GUI.exe
+
+    - name: Upload CLI executable
+      uses: actions/upload-artifact@v3
+      with:
+        name: Image2PDF_CLI_Windows
+        path: dist/Image2PDF_CLI.exe
+
+    - name: Create checksums
+      run: |
+        certutil -hashfile dist\Image2PDF_GUI.exe SHA256 > Image2PDF_GUI.exe.sha256
+        certutil -hashfile dist\Image2PDF_CLI.exe SHA256 > Image2PDF_CLI.exe.sha256
+
+    - name: Upload checksums
+      uses: actions/upload-artifact@v3
+      with:
+        name: checksums
+        path: "*.sha256"
+
+  release:
+    needs: [test, build-windows]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release'
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Download Windows executables
+      uses: actions/download-artifact@v3
+
+    - name: Upload release assets
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          Image2PDF_GUI_Windows/Image2PDF_GUI.exe
+          Image2PDF_CLI_Windows/Image2PDF_CLI.exe
+          checksums/*.sha256
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
