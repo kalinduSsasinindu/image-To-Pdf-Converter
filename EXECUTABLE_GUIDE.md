@@ -6,10 +6,12 @@ This guide covers how to use the standalone executable files that don't require 
 
 ## Available Executables
 
-Located in the `dist` folder:
+Download from [GitHub Releases](https://github.com/yourusername/image2pdfconverter/releases):
 
-- **`Image2PDF_GUI.exe`** - Graphical User Interface (Recommended for most users)
-- **`Image2PDF_CLI.exe`** - Command Line Interface (For advanced users and automation)
+- **`Image2PDF_GUI.exe`** (26MB) - Graphical User Interface (Recommended for most users)
+- **`Image2PDF_CLI.exe`** (23MB) - Command Line Interface (For advanced users and automation)
+
+> 📥 **How to Download**: Go to the [Releases page](https://github.com/yourusername/image2pdfconverter/releases), find the latest version, and download the executable files from the "Assets" section.
 
 ## GUI Version (Image2PDF_GUI.exe)
 
@@ -100,9 +102,10 @@ Get help anytime with:
 
 You can share these executable files with others without them needing to install Python or any dependencies:
 
-1. **Copy the `dist` folder** to any Windows computer
-2. **Run the executables** directly from the folder
-3. **No installation required** - they are completely standalone
+1. **Download from GitHub Releases** (or build from source using [BUILD.md](BUILD.md))
+2. **Copy the executable files** to any Windows computer
+3. **Run the executables** directly - no installation required
+4. **Completely standalone** - they include all necessary libraries
 
 ### File Sizes
 

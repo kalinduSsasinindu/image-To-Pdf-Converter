@@ -40,11 +40,15 @@ A comprehensive Python application for converting images to PDF format. This too
 
 For users who just want to convert images to PDF without installing Python:
 
-1. **Download** the `dist` folder containing the executable files
-2. **Double-click** `Image2PDF_GUI.exe` for the graphical interface
-3. **Or use** `Image2PDF_CLI.exe` for command-line operation
+1. **Go to [Releases](https://github.com/yourusername/image2pdfconverter/releases)** 
+2. **Download the latest release** containing:
+   - `Image2PDF_GUI.exe` - Graphical interface (26MB)
+   - `Image2PDF_CLI.exe` - Command-line tool (23MB)
+3. **Run the executables** directly - no installation needed!
 
 **See [EXECUTABLE_GUIDE.md](EXECUTABLE_GUIDE.md) for detailed instructions.**
+
+> 💡 **Note**: Executable files are distributed through GitHub Releases, not in the repository itself, to keep the repository lightweight.
 
 ### Option 2: Install from Source
 
@@ -184,17 +188,24 @@ python image_to_pdf_converter.py image.png --page-size Letter --margin 100 -o cu
 
 ```
 image2pdfconverter/
-├── dist/                     # Executable files (ready to use)
-│   ├── Image2PDF_GUI.exe    # ← GUI executable (double-click to run)
-│   └── Image2PDF_CLI.exe    # ← Command-line executable
-├── image_to_pdf_converter.py # Main command-line script (source)
-├── gui_converter.py          # GUI application (source)
+├── .github/workflows/        # GitHub Actions for CI/CD
+├── image_to_pdf_converter.py # Main command-line script
+├── gui_converter.py          # GUI application
 ├── test_converter.py         # Test script to verify installation
 ├── convert.bat              # Windows convenience batch file
 ├── requirements.txt         # Python dependencies
-├── README.md               # This file
-├── EXECUTABLE_GUIDE.md     # Guide for using .exe files
-└── venv/                   # Virtual environment (optional)
+├── .gitignore              # Git ignore patterns
+├── LICENSE                 # MIT License
+├── README.md              # This file
+├── EXECUTABLE_GUIDE.md    # Guide for using .exe files
+├── CONTRIBUTING.md        # Contributing guidelines
+├── BUILD.md              # Build instructions
+├── CHANGELOG.md          # Version history
+└── venv/                 # Virtual environment (optional)
+
+# Executable files are available in GitHub Releases:
+# → Image2PDF_GUI.exe    (GUI executable - 26MB)
+# → Image2PDF_CLI.exe    (CLI executable - 23MB)
 ```
 
 ## Troubleshooting
